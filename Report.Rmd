@@ -541,7 +541,7 @@ For the columns with names beginning with a number, I added "a" to the beginning
 
 <br>
 
-## **4 Modeling and making predictions ** 
+## **4 Modeling ** 
 ***
 Let go modeling with {mlr} and {ranger}!`r emo::ji("running")` First, we need to make a supervised task object.
 ```{r, warning = FALSE}
