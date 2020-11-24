@@ -1628,7 +1628,7 @@ names(.version) &lt;- loaded_package
 ## Use `spec()` to retrieve the guessed column specification
 ## Pass a specification to the `col_types` argument to quiet this message</code></pre>
 <pre><code>##    user  system elapsed 
-##    0.04    0.03    0.13</code></pre>
+##    0.04    0.03    0.12</code></pre>
 <pre class="r"><code>system.time(
   test &lt;- vroom(&quot;./data/test.csv&quot;))</code></pre>
 <pre><code>## Rows: 1,459
@@ -1641,7 +1641,7 @@ names(.version) &lt;- loaded_package
 ## Use `spec()` to retrieve the guessed column specification
 ## Pass a specification to the `col_types` argument to quiet this message</code></pre>
 <pre><code>##    user  system elapsed 
-##    0.02    0.00    0.05</code></pre>
+##    0.01    0.00    0.04</code></pre>
 <pre><code>## There are 1460 observations and 81 variables in training dataset.</code></pre>
 <pre><code>## There are 1459 observations and 80 variables in test dataset.</code></pre>
 <p>And then, let’s prepare a submission file.</p>
