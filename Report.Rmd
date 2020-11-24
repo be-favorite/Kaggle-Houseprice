@@ -28,8 +28,7 @@ library(mlr)
 library(randomForest)
 library(scales)
 library(rlist) # list.save(), list.load()
-library(Cairo)
-loaded_package <- c("tidyverse", "vroom", "mlr", "randomForest", "scales", "rlist", "Cairo")
+loaded_package <- c("tidyverse", "vroom", "mlr", "randomForest", "scales", "rlist")
 .version <- map(loaded_package, packageVersion)
 names(.version) <- loaded_package
 .version
