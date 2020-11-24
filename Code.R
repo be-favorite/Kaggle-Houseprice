@@ -452,8 +452,8 @@ set_cv <- makeResampleDesc("CV", iters = 5L)
 set.seed(1)
 ranger_tune <- tuneParams(learner = .ranger, resampling = set_cv, task = train_Task,
                           par.set = ranger_params, control = rancontrol, measures = rmsle)
-# list.save(ranger_tune, "./data/Houseprice/ranger_tune.RData")
-# ranger_tune <- list.load("./data/Houseprice/ranger_tune.RData")
+# list.save(ranger_tune, "./data/ranger_tune.RData")
+# ranger_tune <- list.load("./data/ranger_tune.RData")
 
 ranger_tune$x # Optimal hyperparameters based on RMSLE
 ranger_tune$x$importance <- "impurity" # To get variable importances

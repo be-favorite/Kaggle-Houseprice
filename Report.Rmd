@@ -534,7 +534,7 @@ we must follow R's variable naming conventions, when modeling with the {mlr} pac
 ```{r}
 idx_str <- str_detect(colnames(house14), "^\\d") # It starts with number. 
 colnames(house14)[idx_str] <- str_c("a", colnames(house14)[idx_str])
-glimpse(house14)
+head(house14)
 ```
 For the columns with names beginning with a number, I added "a" to the beginning.
 
@@ -570,7 +570,7 @@ ranger_params <- makeParamSet(
 )
 ```
 Most of the modeling steps would be similar to followed above, but this time I’ve done random search instead of grid search for parameter tuning. random search is faster than grid search, but what you need to know is sometimes it turns out to be less efficient. because, In grid search, the algorithm tunes over every possible combination of parameters provided. In a random search, we specify the number of iterations and it randomly passes over the parameter combinations. In this process, it might miss out some important combination of parameters which could have returned maximum accuracy. That's all you need to know.
-let's do random search for 100 iterations:
+let's do random search for 100 iterations. This time, I will load and use the .RData that I have tuned in advance. If you run the comment part in the code below, you will get a .RData file. `r emo::ji("smile")`
 ```{r}
 rancontrol <- makeTuneControlRandom(maxit = 100L)
 # set 3 fold cross validation
@@ -579,6 +579,7 @@ set_cv <- makeResampleDesc("CV", iters = 5L)
 set.seed(1)
 # ranger_tune <- tuneParams(learner = .ranger, resampling = set_cv, task = train_Task,
 #                           par.set = ranger_params, control = rancontrol, measures = rmsle)
+# list.save(ranger_tune, "./data/ranger_tune.RData")
 ranger_tune <- list.load("./data/ranger_tune.RData")
 ```
 In the training step, I chose RMSLE to evaluate the model, which is the same as the Kaggle competition criterion. The following is optimal hyperparameters based on RMSLE:
