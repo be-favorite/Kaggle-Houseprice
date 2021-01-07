@@ -108,6 +108,8 @@ na_prop %>%
   scale_y_continuous(breaks = seq(0, 1, by = 0.1)) +
   theme(axis.text.y = element_text(size = 10))
 ```
+
+
 There are many variables with missing values.`r emo::ji("weary")` But, we can do it! let's go.
 
 ### 3.3 Labels encoding and imputation
@@ -217,6 +219,8 @@ ggplot(house3, aes(x = Neighborhood, y = LotFrontage)) +
     x = "Neighborhood"
   )
 ```
+
+
 Let's take the median per neighbor.
 ```{r, message = FALSE}
 LotFront_med <- house3 %>%
