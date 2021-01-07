@@ -72,7 +72,7 @@ house <- bind_rows(train, test)
 ```
 
 ### 3.1 The distribution of $Y$
-```{r}
+```{r, fig.align = "center", out.width = "60%", cache = TRUE}
 ggplot(data = house %>% filter(!is.na(SalePrice))) +
   geom_histogram(aes(x = SalePrice), fill = "blue", alpha = 1/2, binwidth = 10000) +
   scale_x_continuous(labels = dollar_format()) +
@@ -87,7 +87,7 @@ ggplot(data = house %>% filter(!is.na(SalePrice))) +
 ### 3.2 Missing values
 I'm going to check the proportions of missing values per columns. If you want to know the number of missing values per columns, use sum() function in map_dfr().
 
-```{r}
+```{r, fig.align = "center", out.width = "60%", cache = TRUE}
 na_prop <- house %>% 
   select(-SalePrice) %>% 
   map(is.na) %>% 
@@ -208,7 +208,7 @@ house3 <- house2 %>%
 #### 3.3.2 LotFrontage
 - LotFrontage: Linear feet of street connected to property
 I'm going to impute NA values of LotFrontage using the Neighborhood column. 
-```{r, warning = FALSE}
+```{r, warning = FALSE, fig.align = "center", out.width = "60%", cache = TRUE}
 ggplot(house3, aes(x = Neighborhood, y = LotFrontage)) +
   stat_boxplot(geom = 'errorbar') +
   geom_boxplot(fill = "skyblue", alpha = 0.8) +
@@ -264,7 +264,7 @@ mode_MasType <- mode_vector(house4, MasVnrType) %>%
   pull(MasVnrType)
 
 MasVnrType_lev <- c("Stone", "None", "CBlock", "BrkFace", "BrkCmn")
-house5 <-house4 %>% 
+house5 <- house4 %>% 
   select(MasVnrType, MasVnrArea, everything()) %>% 
   mutate(MasVnrType = case_when(
     is.na(MasVnrType) & !is.na(MasVnrArea) ~ mode_MasType[[1]],
@@ -605,7 +605,7 @@ mod_ranger <- mlr::train(ranger_tree, train_Task)
 getLearnerModel(mod_ranger)
 ```
 Of couse, you can get the variable importances from {ranger}. I visualized the variable importances of the Top 10 based on "MeanDecreaseGini". This is also the reason for adding "impurity" to optimal hyperparameters(the list object, ranger_tune) in advance.
-```{r}
+```{r, fig.align = "center", out.width = "60%", cache = TRUE}
 imp <- getFeatureImportance(mod_ranger)
 imp$res %>%
   gather(key = "variable", value = "importance") %>%
