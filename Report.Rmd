@@ -1,14 +1,20 @@
 ---
-title: <center> **<font size = "5"> Predict House Price with {ranger} **</font> </center>
-author: <center> <font size = "3">Taemo Bang </font></center>
-date: <center> <font size = "3"> 10 Nov 2019 </font></center>
-output: 
-    html_document:
-      toc: true
-      toc_depth: 5
-      toc_float: true
-      theme: united
+title: "<center> **<font size = 5> Predict House Price with {mlr} and {ranger} **</font> </center>"
+author: "<center> <font size = 3>Taemo Bang </font></center>"
+date: "<center> <font size = 3> 10 Nov 2019 </font></center>"
+output:
+  html_document:
+    toc: yes
+    toc_depth: 5
+    toc_float: yes
+    theme: sandstone
+    highlight: tango
 ---
+<style>
+.math {
+  font-size: small;
+}
+</style>
 
 <br>
 
