@@ -3,4 +3,4 @@ Please check details in [my report](https://be-favorite.github.io/Kaggle-Housepr
 
 If you download this repo, It's completely reproducible!
 
-thanks.:smile:
+thanks.😀
